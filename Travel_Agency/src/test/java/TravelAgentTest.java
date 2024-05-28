@@ -12,14 +12,16 @@ public class TravelAgentTest {
 
     @BeforeEach
     public void setUp(){
-        bookable = new Train(100, 500);
+        train = new Train(100, 500);
         customer = new Customer("John", 200);
         travelAgent = new TravelAgent();
     }
 
     @Test
     void testMakeBooking_CustomerCanAffordAndHasCapacity_BookingSuccessful() {
-        travelAgent.makeBooking(bookable, customer);
-        assertThat(bookable.getCustomers().size()).isEqualTo(1);
+        travelAgent.makeBooking(train, customer);
+        assertThat(train.getCustomers().size()).isEqualTo(1);
     }
+
+    //test b&b as wel
 }

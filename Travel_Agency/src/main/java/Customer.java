@@ -2,6 +2,7 @@ public class Customer {
     private String name;
     private int wallet;
 
+
     //    Constructor
     public Customer(String name, int wallet) {
         this.name = name;
@@ -26,16 +27,23 @@ public class Customer {
         this.wallet = wallet;
     }
 
-    public void pay(int amount){
-        if (wallet >= amount) {
-            wallet -= amount;
-        } else {
-            throw new IllegalArgumentException("Insufficient Funds");
+//    public void pay(int amount){
+//        if (wallet >= amount) {
+//            wallet -= amount;
+//        } else {
+//            throw new IllegalArgumentException("Insufficient Funds");
+//        }
+//    }
+
+    public void pay(int amount) {
+        if (canAfford(amount)) {
+            this.wallet -= amount;
         }
     }
 
+
     public boolean canAfford(int amount){
-        return wallet >= amount;
+        return this.wallet >= amount;
     }
 
 }
